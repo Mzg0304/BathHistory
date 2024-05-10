@@ -10,15 +10,38 @@
     <div class="header" style="background-color: #879ac7; color: white;">
         <h1 class="Main_Title" style="margin: 0;">Booking Confirmation</h1>
     </div>
-    <div class="Main_Nav">
-        <p><a href="HomePage.html" class="NavLink">Home</a></p>
-        <p><a href="MaryShelly.html" class="NavLink">Mary Shelly's House of Frankenstein</a></p>
-        <p><a href="RomanBath.html" class="NavLink">Roman Baths</a></p>
-        <p><a href="MuseumOBath.html" class="NavLink">Museum Of Bath at Work</a></p>
-        <p><a href="BeckTower.html" class="NavLink">Beckford's Tower</a></p>
-        <p><a href="HolburneMuseum.html" class="NavLink">Holburne Museum</a></p>
-        <p><a href="UserProfile.html" class="CurrNavLink">User Profile</a></p>
-    </div>
+     <!-- Navigation bar -->
+<div class="Main_Nav">
+    <p class="navItem"><a href="HomePage.html" class="CurrNavLink">
+        Home
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MaryShelly.html" class="NavLink">
+        Mary Shelly's House of Frankenstein
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="RomanBath.html" class="NavLink">
+        Roman Baths
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MuseumOBath.html" class="NavLink">
+        Museum Of Bath at Work
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="BeckTower.html" class="NavLink">
+        Beckford's Tower
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="HolburneMuseum.html" class="NavLink">
+        Holburne Museum
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="UserProfile.html" class="NavLink">
+        User Profile
+        <span class="hover-overlay"></span>
+    </a></p>
+</div>
+
 
     <!-- Booking Details -->
     <div class="GeneralInfo">
@@ -50,7 +73,11 @@
         <!-- Button to confirm booking -->
         <button onclick="confirmBooking()">Confirm Booking</button>
     </div>
-
+	 <!-- Help Button -->
+    <div id="helpButton">
+        <button id="helpBtn">&#63;</button>
+        <div id="helpContent">Your help content goes here.</div>
+    </div>
     <!-- Script to handle booking confirmation -->
     <script>
         // Retrieve saved booking information from localStorage
@@ -66,10 +93,12 @@
         bookingDetails.innerHTML += "<p>Tickets: " + ticketCount + "</p>";
 
         function confirmBooking() {
-            // Retrieve booking details
+            // Get selected time slot
             var selectedTime = document.getElementById("timeSlot").value;
+
+            // Get payment information
             var cardNumber = document.getElementById("cardNumber").value;
-            var last4Digits = cardNumber.slice(-4);
+            var last4Digits = cardNumber.slice(-4); // Extract last 4 digits of the card number
             var expiryDate = document.getElementById("expiryDate").value;
             var cvv = document.getElementById("cvv").value;
 
@@ -84,8 +113,33 @@
             htmlContent += "<p>Time Slot: " + selectedTime + "</p>";
             htmlContent += "<p>Last 4 Digits of Card Number: " + last4Digits + "</p>";
            
+            // Create a new visit object with booking details
+            var visit = {
+                tripNumber: new Date().getTime(), // Generate a unique trip number
+                tripDestination: selectedDestination,
+                selectedDate: selectedDate,
+                selectedTime: selectedTime,
+                ticketCount: ticketCount,
+                yourNotes: "", // You can add notes here if needed
+                fileName: selectedDestination.replace(/\s+/g, "_") + "_" + selectedDate.replace(/\//g, "-") + ".html" // Unique file name for the visit
+            };
+
+            // Retrieve user's profile data from localStorage
+            var userId = localStorage.getItem("userId");
+            var userProfile = JSON.parse(localStorage.getItem("userProfile_" + userId)) || {};
+
+            // Retrieve existing planned visits or initialize as empty array
+            var plannedVisits = userProfile.plannedVisits || [];
+
+            // Add the new visit to the plannedVisits array
+            plannedVisits.push(visit);
+
+            // Update the user's profile data in localStorage
+            userProfile.plannedVisits = plannedVisits;
+            localStorage.setItem("userProfile_" + userId, JSON.stringify(userProfile));
+
             // Create a unique HTML name for the booking confirmation
-            var uniqueName = selectedDestination.replace(/\s+/g, "_") + "_" + selectedDate.replace(/\//g, "-") + "_" + new Date().getTime() + ".html";
+            var uniqueName = visit.fileName;
 
             // Create a new window for the PDF
             var win = window.open('', '_blank');

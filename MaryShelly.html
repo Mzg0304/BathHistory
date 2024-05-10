@@ -5,86 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historical Sites In Bath</title>
     <link rel="stylesheet" href="CSS/Main.css">
-    <style>
-        /* Add CSS for slideshow container */
-        .slideshow-container {
-            max-width: 100%;
-            position: relative;
-            margin-top: 20px; /* Adjust margin as needed */
-        }
-
-        /* Hide the images by default */
-        .mySlides {
-            display: none;
-        }
-
-        /* Add CSS for navigation arrows */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        }
-
-        /* Position the 'prev' arrow on the left side */
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        /* Position the 'next' arrow on the right side */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a darker background color */
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8); /* Darker background color */
-        }
-
-        /* Add CSS for caption text */
-        .caption-container {
-            text-align: center;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            color: white;
-        }
-
-        /* Add CSS for the caption text */
-        .caption-text {
-            color: white;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: relative;
-            bottom: 8px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="header" style="background-color: #879ac7; color: white;">
         <h1 class="Main_Title" style="margin: 0;">Historical Sites In Bath</h1>
     </div>
+ <!-- Navigation bar -->
+<div class="Main_Nav">
+    <p class="navItem"><a href="HomePage.html" class="CurrNavLink">
+        Home
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MaryShelly.html" class="NavLink">
+        Mary Shelly's House of Frankenstein
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="RomanBath.html" class="NavLink">
+        Roman Baths
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MuseumOBath.html" class="NavLink">
+        Museum Of Bath at Work
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="BeckTower.html" class="NavLink">
+        Beckford's Tower
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="HolburneMuseum.html" class="NavLink">
+        Holburne Museum
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="UserProfile.html" class="NavLink">
+        User Profile
+        <span class="hover-overlay"></span>
+    </a></p>
+</div>
 
-    <!-- Navigation bar -->
-   <div class="Main_Nav">
-        <p><a href="HomePage.html" class="NavLink">Home</a></p>
-        <p><a href="MaryShelly.html" class="CurrNavLink">Mary Shelly's House of Frankenstein</a></p>
-        <p><a href="RomanBath.html" class="NavLink">Roman Baths</a></p>
-        <p><a href="MuseumOBath.html" class="NavLink">Museum Of Bath at Work</a></p>
-        <p><a href="BeckTower.html" class="NavLink">Beckford's Tower</a></p>
-        <p><a href="HolburneMuseum.html" class="NavLink">Holburne Museum</a></p>
-        <p><a href="UserProfile.html" class="NavLink">User Profile</a></p>
-    </div>
 
     <!-- General Information -->
     <div class="GeneralInfo">
@@ -112,6 +70,11 @@
 		<h3>Map Of Site:</h3>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.024733265978!2d-2.365769922663825!3d51.38422347178561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4871819969598e71%3A0x278ce50fc709002e!2sMary%20Shelley&#39;s%20House%20of%20Frankenstein!5e0!3m2!1sen!2suk!4v1713968165720!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		
+    </div>
+	 <!-- Help Button -->
+    <div id="helpButton">
+        <button id="helpBtn">&#63;</button>
+        <div id="helpContent">To book your visit go to the "User Profile" page. If you have any problems please contact: HSBHelp@gmail.com </div>
     </div>
 
     <script>

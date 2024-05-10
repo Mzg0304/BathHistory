@@ -20,16 +20,38 @@
         <h1 class="Main_Title" style="margin: 0;">Historical Sites In Bath</h1>
     </div>
 
-    <!-- Navigation bar -->
-    <div class="Main_Nav">
-        <p><a href="HomePage.html" class="NavLink">Home</a></p>
-        <p><a href="MaryShelly.html" class="CurrNavLink">Mary Shelly's House of Frankenstein</a></p>
-        <p><a href="RomanBath.html" class="NavLink">Roman Baths</a></p>
-        <p><a href="MuseumOBath.html" class="NavLink">Museum Of Bath at Work</a></p>
-        <p><a href="BeckTower.html" class="NavLink">Beckford's Tower</a></p>
-        <p><a href="HolburneMuseum.html" class="NavLink">Holburne Museum</a></p>
-        <p><a href="UserProfile.html" class="NavLink">User Profile</a></p>
-    </div>
+      <!-- Navigation bar -->
+<div class="Main_Nav">
+    <p class="navItem"><a href="HomePage.html" class="CurrNavLink">
+        Home
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MaryShelly.html" class="NavLink">
+        Mary Shelly's House of Frankenstein
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="RomanBath.html" class="NavLink">
+        Roman Baths
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="MuseumOBath.html" class="NavLink">
+        Museum Of Bath at Work
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="BeckTower.html" class="NavLink">
+        Beckford's Tower
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="HolburneMuseum.html" class="NavLink">
+        Holburne Museum
+        <span class="hover-overlay"></span>
+    </a></p>
+    <p class="navItem"><a href="UserProfile.html" class="NavLink">
+        User Profile
+        <span class="hover-overlay"></span>
+    </a></p>
+</div>
+
 
     <!-- General Information -->
     <div class="GeneralInfo">
@@ -57,7 +79,11 @@
         <button onclick="bookVisit()">Book a Visit</button>
 		<p id="selectedDateMessage" style="margin-top: 10px;"></p>
     </div>
-
+	 <!-- Help Button -->
+    <div id="helpButton">
+        <button id="helpBtn">&#63;</button>
+        <div id="helpContent">Please provide the date, place and number of tickets you want for your booking. If you have any problems please contact: HSBHelp@gmail.com</div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js'></script>
@@ -101,7 +127,7 @@
             selectedDateFormatted = info.dateStr;
 
             // Display selected date
-            alert("Selected Date: " + selectedDateFormatted);
+            <!-- alert("Selected Date: " + selectedDateFormatted); -->
         },
         selectAllow: function(selectInfo) {
             if (selectInfo.start >= new Date()) {
@@ -134,7 +160,7 @@
 
         // Redirect to another page or perform further actions
         // For now, display the selected data
-        alert("Visit booked!\nDestination: " + selectedDestination + "\nDate: " + selectedDateFormatted + "\nTickets: " + ticketCount);
+        <!-- alert("Visit booked!\nDestination: " + selectedDestination + "\nDate: " + selectedDateFormatted + "\nTickets: " + ticketCount); -->
 		 window.location.href = "ConfirmBooking.html"; // Change "login.html" to the actual URL of the login page
     }
 </script>
